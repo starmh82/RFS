@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFS.Web", "RFS\RFS.Web.csproj", "{E88139A6-D95D-42F2-8FA4-309688F039F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFS.Repositories", "Repository\RFS.Repositories.csproj", "{91304158-855E-4B07-B728-5A92C2A49FB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFS.Core", "RFS.Core\RFS.Core.csproj", "{960B5860-1D8C-45F0-AD66-BDE8E678FADC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E88139A6-D95D-42F2-8FA4-309688F039F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E88139A6-D95D-42F2-8FA4-309688F039F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E88139A6-D95D-42F2-8FA4-309688F039F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E88139A6-D95D-42F2-8FA4-309688F039F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91304158-855E-4B07-B728-5A92C2A49FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91304158-855E-4B07-B728-5A92C2A49FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91304158-855E-4B07-B728-5A92C2A49FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91304158-855E-4B07-B728-5A92C2A49FB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960B5860-1D8C-45F0-AD66-BDE8E678FADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960B5860-1D8C-45F0-AD66-BDE8E678FADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960B5860-1D8C-45F0-AD66-BDE8E678FADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960B5860-1D8C-45F0-AD66-BDE8E678FADC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7D63D3D-51DC-46D3-B191-4647FAE36EDB}
+	EndGlobalSection
+EndGlobal
