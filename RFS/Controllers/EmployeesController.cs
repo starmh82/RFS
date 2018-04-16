@@ -15,5 +15,10 @@ namespace RFS.Controllers
         {
             return View(db.Users.ToList());
         }
+        public ActionResult Edit(int Id)
+        {
+            return View();
+        }
+
     }
 }

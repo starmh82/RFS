@@ -5,18 +5,20 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using RFS.Core.Enums;
+using RFS.Core;
 namespace RFS.Core.Security
 {
-    public class IdentityUser : IUser<int>
+    public class IdentityUser : AuditableEntity, IUser<int>
     {
         public IdentityUser()
         {
             Roles = new List<IdentityUserRole>();
             Claims = new List<IdentityUserClaim>();
             Logins = new List<IdentityUserLogin>();
+            this.SetCreated();
         }
-        public IdentityUser(string userName):this()
+        public IdentityUser(string userName) : this()
         {
             UserName = userName;
 
@@ -24,8 +26,11 @@ namespace RFS.Core.Security
 
         [Key]
         public int Id { get; set; }
+        [StringLength(20)]
         public string UserName { get; set; }
-
+        [Required]
+        [EmailAddress]
+        [StringLength(100)]
         public virtual string Email { get; set; }
 
         /// <summary>
@@ -37,12 +42,14 @@ namespace RFS.Core.Security
         ///     The salted/hashed form of the user password
         /// </summary>
         //public  string PasswordHash { get; set; }
+        [Required]
+        [StringLength(100)]
         public string Password { get; set; }
 
         /// <summary>
         /// A random value that should change whenever a users credentials change (password changed, login removed)
         /// </summary>
-       // public  string SecurityStamp { get; set; }
+        // public  string SecurityStamp { get; set; }
 
         /// <summary>
         /// A random value that should change whenever a user is persisted to the store
@@ -57,7 +64,7 @@ namespace RFS.Core.Security
         /// <summary>
         ///     True if the phone number is confirmed, default is false
         /// </summary>
-       // public  bool PhoneNumberConfirmed { get; set; }
+        // public  bool PhoneNumberConfirmed { get; set; }
 
         /// <summary>
         ///     Is two factor enabled for the user
@@ -79,19 +86,38 @@ namespace RFS.Core.Security
         /// </summary>
         //public  int AccessFailedCount { get; set; }
 
+
+        #region custom properties
+            [Required]
+        [StringLength(50)]
+        public virtual string Name { get; set; }
+        [Required]
+        [StringLength(10)]
+        public virtual string NationalID { get; set; }
+        [Required]
+        [StringLength(10)]
+        public virtual string Mobile { get; set; }
+        [Required]
+        [StringLength(50)]
+        public virtual string CompanyName { get; set; }
+        public Langauge LanguagePreferred { get; set; }
+        public bool IsActive { get; set; }
+        public UserType UserType { get; set; }
+
+        #endregion
         /// <summary>
         ///     Navigation property for users in the role
         /// </summary>
-        public  ICollection<IdentityUserRole> Roles { get; protected set; }
+        public ICollection<IdentityUserRole> Roles { get; protected set; }
 
         /// <summary>
         ///     Navigation property for users claims
         /// </summary>
-        public  ICollection<IdentityUserClaim> Claims { get; private set; }
+        public ICollection<IdentityUserClaim> Claims { get; private set; }
 
         /// <summary>
         ///     Navigation property for users logins
         /// </summary>
-        public  ICollection<IdentityUserLogin> Logins { get; private set; }
+        public ICollection<IdentityUserLogin> Logins { get; private set; }
     }
 }

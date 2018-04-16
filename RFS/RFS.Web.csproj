@@ -1899,6 +1899,7 @@
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Employees\Employees.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
