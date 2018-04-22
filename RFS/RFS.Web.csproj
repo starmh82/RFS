@@ -1919,17 +1919,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Repository\RFS.Repositories.csproj">
-      <Project>{91304158-855e-4b07-b728-5a92c2a49fb3}</Project>
-      <Name>RFS.Repositories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RFS.Core\RFS.Core.csproj">
-      <Project>{960b5860-1d8c-45f0-ad66-bde8e678fadc}</Project>
-      <Name>RFS.Core</Name>
-    </ProjectReference>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <ProjectReference Include="..\RFS.Application\RFS.Application.csproj">
+      <Project>{3f50099c-b0d6-45b5-b905-7d985c7012e7}</Project>
+      <Name>RFS.Application</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

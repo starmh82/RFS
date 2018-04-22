@@ -1,15 +1,13 @@
 ﻿using RFS.Filters;
 using System.Web.Mvc;
-using RFS.Core;
-using RFS.Repositories;
 using System.Linq;
+using RFS.Application;
 
 namespace RFS.Controllers
 {
     [CheckLogin]
     public class AccountController : Controller
     {
-        private RFSContext db = new RFSContext();
         // GET: Account
         public ActionResult Index()
         {
@@ -25,7 +23,7 @@ namespace RFS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string UserName,string Password)
         {
-            var user = db.Users.Where(u => u.UserName.Equals(UserName) && u.Password.Equals(Password)).FirstOrDefault();
+            var user = UserService.Instance.FindUser(UserName, Password);
             if(user != null)
             {
                 Session["UserName"] = UserName;

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFS.Repositories", "Reposit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFS.Core", "RFS.Core\RFS.Core.csproj", "{960B5860-1D8C-45F0-AD66-BDE8E678FADC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFS.Application", "RFS.Application\RFS.Application.csproj", "{3F50099C-B0D6-45B5-B905-7D985C7012E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{960B5860-1D8C-45F0-AD66-BDE8E678FADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{960B5860-1D8C-45F0-AD66-BDE8E678FADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{960B5860-1D8C-45F0-AD66-BDE8E678FADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F50099C-B0D6-45B5-B905-7D985C7012E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F50099C-B0D6-45B5-B905-7D985C7012E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F50099C-B0D6-45B5-B905-7D985C7012E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F50099C-B0D6-45B5-B905-7D985C7012E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
