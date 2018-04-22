@@ -31,7 +31,8 @@ namespace RFS
                       "~/Content/bower_components/font-awesome/css/font-awesome.css",
                       "~/Content/bower_components/Ionicons/css/ionicons.css",
                       "~/Content/dist/css/AdminLTE.css",
-                      "~/Content/dist/css/skins/_all-skins.css"                      ));
+                      "~/Content/dist/css/skins/_all-skins.css" ,
+                      "~/Content/dist/css/MyCss.css"));
 
 
             // Morris.js Charts

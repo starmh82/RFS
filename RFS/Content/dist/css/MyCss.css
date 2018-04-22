@@ -1,0 +1,40 @@
+﻿/*Mahmoud Hazouri Styles*/
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+
+.red-tooltip + .tooltip > .tooltip-inner {
+    background-color: #dd4b39;
+}
+
+.red-tooltip + .tooltip.top > .tooltip-arrow {
+    border-top-color: #dd4b39;
+}
+.red-tooltip + .tooltip.left > .tooltip-arrow {
+    border-left-color: #dd4b39;
+}
+.red-tooltip + .tooltip.right > .tooltip-arrow {
+    border-right-color: #dd4b39;
+}
+.blue-tooltip + .tooltip > .tooltip-inner {
+    background-color: royalblue;
+}
+
+.blue-tooltip + .tooltip.top > .tooltip-arrow {
+    border-top-color: royalblue;
+}
+.blue-tooltip + .tooltip.left > .tooltip-arrow {
+    border-left-color: royalblue;
+}
+.green-tooltip + .tooltip > .tooltip-inner {
+    background-color: #00a65a;
+}
+
+.green-tooltip + .tooltip > .tooltip-arrow {
+    /*border-top-color: #00a65a;*/
+    border-left-color: #00a65a;
+}
+/* ------------------- */
