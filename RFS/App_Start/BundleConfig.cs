@@ -49,6 +49,15 @@ namespace RFS
 
             bundles.Add(new ScriptBundle("~/bundles/icheck.js").Include(
                 "~/Content/plugins/iCheck/icheck.min.js"));
+
+            //Pace Automatic Page Load Progress
+            bundles.Add(new StyleBundle("~/bundles/pace").Include(
+               "~/Content/plugins/pace/pace.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/pace.js").Include(
+                "~/Content/plugins/pace/pace.min.js"));
+
+
             // Enables bundling and minification and overrides any setting in the Web.config file
             //BundleTable.EnableOptimizations = true;
 
