@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using RFS.Core.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
-using RFS.Core.Enums;
-
 namespace RFS.Application.Dto
 {
-    public class UserDto
+    public class UserCreateDto
     {
         public int Id { get; set; }
         [StringLength(20)]
@@ -17,7 +14,7 @@ namespace RFS.Application.Dto
         public virtual string Email { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [RegularExpression(@"^(?:.*[a-z]){2,}$", ErrorMessage = "Name length must be greater than or equal 2 characters.")]
         public virtual string Name { get; set; }
         [Required]
         [StringLength(10)]
@@ -33,7 +30,15 @@ namespace RFS.Application.Dto
         public UserType UserType { get; set; }
         public DateTime CreatedAt { get; protected set; }
 
-        public UserDto()
+        [Required]
+        [StringLength(100)]
+        public string Password { get; set; }
+        [Required]
+        [StringLength(100)]
+        [Compare(nameof(Password), ErrorMessage = "Password and Confirm not equal")]
+        public string ConfirmPassword { get; set; }
+
+        public UserCreateDto()
         {
             CreatedAt = DateTime.Now;
         }

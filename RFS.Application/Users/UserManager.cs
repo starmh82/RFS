@@ -1,7 +1,7 @@
-﻿using RFS.Application.Dto;
+﻿using RFS.Repositories;
 using System.Collections.Generic;
 using System.Linq;
-using RFS.Repositories;
+using RFS.Application.Dto;
 namespace RFS.Application
 {
     public class UserService
@@ -18,12 +18,12 @@ namespace RFS.Application
             Instance = new UserService();
         }
 
-        public List<UserDto> GetAllUsers()
+        public List<UserListDto> GetAllUsers()
         {
             var users = userRepository.GetAll().ToList();
 
-            List<UserDto> usersList = new List<UserDto>();
-            foreach (var user in users) usersList.Add(new UserDto
+            List<UserListDto> usersList = new List<UserListDto>();
+            foreach (var user in users) usersList.Add(new UserListDto
             {
                 Id = user.Id,
                 CompanyName = user.CompanyName,
@@ -40,12 +40,12 @@ namespace RFS.Application
             return usersList;
         }
 
-        public List<UserDto> GetAllEmployees()
+        public List<UserListDto> GetAllEmployees()
         {
             var employees = userRepository.GetAllEmployees();
 
-            List<UserDto> employeesList = new List<UserDto>();
-            foreach (var user in employees) employeesList.Add(new UserDto
+            List<UserListDto> employeesList = new List<UserListDto>();
+            foreach (var user in employees) employeesList.Add(new UserListDto
             {
                 Id = user.Id,
                 CompanyName = user.CompanyName,
@@ -61,12 +61,12 @@ namespace RFS.Application
 
             return employeesList;
         }
-        public List<UserDto> GetAllClients()
+        public List<UserListDto> GetAllClients()
         {
             var clients = userRepository.GetAllEmployees();
 
-            List<UserDto> clientsList = new List<UserDto>();
-            foreach (var user in clients) clientsList.Add(new UserDto
+            List<UserListDto> clientsList = new List<UserListDto>();
+            foreach (var user in clients) clientsList.Add(new UserListDto
             {
                 Id = user.Id,
                 CompanyName = user.CompanyName,
@@ -84,12 +84,12 @@ namespace RFS.Application
         }
 
 
-        public UserDto FindUser(string userName, string password)
+        public UserListDto FindUser(string userName, string password)
         {
             var user = userRepository.Find(u => u.UserName.Equals(userName) && u.Password.Equals(password)).SingleOrDefault();
-            if(user != null)
+            if (user != null)
             {
-                return new UserDto { Id = user.Id, UserName = user.UserName, Email = user.Email, Name = user.Name };
+                return new UserListDto { Id = user.Id, UserName = user.UserName, Email = user.Email, Name = user.Name };
             }
             return null;
         }

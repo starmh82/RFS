@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using RFS.Application.Dto;
+using RFS.Web.Models;
+
 namespace RFS.Controllers
 {
     public class EmployeesController : Controller
@@ -26,7 +29,26 @@ namespace RFS.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            UserCreateDto userViewModel = new UserCreateDto();
+            return View(userViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(UserCreateDto model)
+        {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
+            if(ModelState.IsValid)
+            {
+                return View();
+            }
+            else
+            {
+                return View(model);
+            }
+            
         }
 
     }

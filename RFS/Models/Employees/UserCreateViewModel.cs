@@ -5,6 +5,7 @@ namespace RFS.Web.Models
 {
     public class UserCreateViewModel
     {
-        public UserDto user { get; set; }
+        public UserCreateDto user { get; set; }
+        
     }
 }

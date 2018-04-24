@@ -1,4 +1,4 @@
-﻿@model RFS.Web.Models.UserCreateViewModel
+﻿@model RFS.Application.Dto.UserCreateDto
 
 @section styles{
     @Styles.Render("~/bundles/icheck")
@@ -36,55 +36,63 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Name</label>
-                                    <input type="text" class="validate form-control" id="name" placeholder="Enter Name">
+                                    <input type="text" class="validate form-control" id="Name" placeholder="Enter Name">
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class="text-danger"})
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Saudi ID / Iqama Number</label>
-                                    <input type="text" class="form-control" id="nationalID" placeholder="National ID">
+                                    <label for="NationalID">Saudi ID / Iqama Number</label>
+                                    <input type="text" class="form-control" id="NationalID" placeholder="National ID">
+                                    @Html.ValidationMessageFor(m => m.NationalID, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                                    <input type="email" class="form-control" id="Email" placeholder="Enter Email">
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mobile</label>
-                                    <input type="text" class="form-control" id="mobile" placeholder="Enter Mobile Number">
+                                    <input type="text" class="form-control" id="Mobile" placeholder="Enter Mobile Number">
+                                    @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Company Name</label>
-                                    <input type="text" class="form-control" id="companyName" placeholder="Enter Company Name">
+                                    <input type="text" class="form-control" id="CompanyName" placeholder="Enter Company Name">
+                                    @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            @*<div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Title</label>
                                     <input type="text" class="form-control" id="title" placeholder="Enter Title">
+                                    @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
                                     <input type="password" class="form-control" id="Password" placeholder="Password">
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Confirm Password</label>
                                     <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="checkbox icheck">
                                     <label>
-                                        <input type="checkbox" id="isActive"> Is Active
+                                        <input type="checkbox" id="IsActive"> Is Active
                                     </label>
                                 </div>
                             </div>

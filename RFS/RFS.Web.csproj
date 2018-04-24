@@ -1936,7 +1936,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RFS.Application\RFS.Application.csproj">
-      <Project>{3f50099c-b0d6-45b5-b905-7d985c7012e7}</Project>
+      <Project>{cc6b8817-4e4d-4fd4-889a-d3c618a3be3e}</Project>
       <Name>RFS.Application</Name>
     </ProjectReference>
   </ItemGroup>
