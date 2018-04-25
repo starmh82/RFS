@@ -171,12 +171,15 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div class="row">
-                                <div class="col-sm-3">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of  @Model.PageCount</div>
-                                <div class="col-sm-9">
-                                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                            @if (Model.PageCount > 1)
+                            {
+                                <div class="row">
+                                    <div class="col-sm-3">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of  @Model.PageCount</div>
+                                    <div class="col-sm-9">
+                                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                                    </div>
                                 </div>
-                            </div>
+                            }
                         </div>
                     }
 

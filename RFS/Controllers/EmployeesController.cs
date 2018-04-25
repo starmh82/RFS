@@ -42,7 +42,9 @@ namespace RFS.Controllers
 
             if(ModelState.IsValid)
             {
-                return View();
+                UserService.Instance.CreateEmployee(model);
+                return RedirectToAction("Index");
+
             }
             else
             {

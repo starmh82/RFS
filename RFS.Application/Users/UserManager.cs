@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using RFS.Application.Dto;
+using System;
+
 namespace RFS.Application
 {
     public class UserService
@@ -23,21 +25,14 @@ namespace RFS.Application
             var users = userRepository.GetAll().ToList();
 
             List<UserListDto> usersList = new List<UserListDto>();
-            foreach (var user in users) usersList.Add(new UserListDto
-            {
-                Id = user.Id,
-                CompanyName = user.CompanyName,
-                Email = user.Email,
-                IsActive = user.IsActive,
-                LanguagePreferred = user.LanguagePreferred,
-                Mobile = user.Mobile,
-                Name = user.Name,
-                NationalID = user.NationalID,
-                UserName = user.UserName,
-                UserType = user.UserType
-            });
+            foreach (var user in users) usersList.Add(new UserListDto().FromIdentityUser(user));
 
             return usersList;
+        }
+
+        public void CreateEmployee(UserCreateDto model)
+        {
+            userRepository.Add(model.ToIdentityUser());
         }
 
         public List<UserListDto> GetAllEmployees()
@@ -45,19 +40,7 @@ namespace RFS.Application
             var employees = userRepository.GetAllEmployees();
 
             List<UserListDto> employeesList = new List<UserListDto>();
-            foreach (var user in employees) employeesList.Add(new UserListDto
-            {
-                Id = user.Id,
-                CompanyName = user.CompanyName,
-                Email = user.Email,
-                IsActive = user.IsActive,
-                LanguagePreferred = user.LanguagePreferred,
-                Mobile = user.Mobile,
-                Name = user.Name,
-                NationalID = user.NationalID,
-                UserName = user.UserName,
-                UserType = user.UserType
-            });
+            foreach (var user in employees) employeesList.Add(new UserListDto().FromIdentityUser(user));
 
             return employeesList;
         }
@@ -66,19 +49,7 @@ namespace RFS.Application
             var clients = userRepository.GetAllEmployees();
 
             List<UserListDto> clientsList = new List<UserListDto>();
-            foreach (var user in clients) clientsList.Add(new UserListDto
-            {
-                Id = user.Id,
-                CompanyName = user.CompanyName,
-                Email = user.Email,
-                IsActive = user.IsActive,
-                LanguagePreferred = user.LanguagePreferred,
-                Mobile = user.Mobile,
-                Name = user.Name,
-                NationalID = user.NationalID,
-                UserName = user.UserName,
-                UserType = user.UserType
-            });
+            foreach (var user in clients) clientsList.Add(new UserListDto().FromIdentityUser(user));
 
             return clientsList;
         }

@@ -1,6 +1,7 @@
 ﻿using RFS.Core.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
+using RFS.Core.Security;
 namespace RFS.Application.Dto
 {
     public class UserCreateDto
@@ -8,6 +9,9 @@ namespace RFS.Application.Dto
         public int Id { get; set; }
         [StringLength(20)]
         public string UserName { get; set; }
+        [Required]
+        [StringLength(50)]
+        public virtual string Title { get; set; }
         [Required]
         [EmailAddress]
         [StringLength(100)]
@@ -43,5 +47,21 @@ namespace RFS.Application.Dto
             CreatedAt = DateTime.Now;
         }
 
+        public IdentityUser ToIdentityUser()
+        {
+            return new IdentityUser {
+             CompanyName = this.CompanyName,
+             Email = this.Email,
+            IsActive = this.IsActive,
+             LanguagePreferred = this.LanguagePreferred,
+            Mobile = this.Mobile,
+            Name = this.Name,
+            NationalID = this.NationalID,
+            Password = this.Password,
+            Title = this.Title,
+            UserType = this.UserType,
+            UserName = this.UserName
+            };
+        }
     }
 }

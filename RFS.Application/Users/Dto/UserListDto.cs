@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 using RFS.Core.Enums;
-
+using RFS.Core.Security;
 namespace RFS.Application.Dto
 {
     public class UserListDto
@@ -36,6 +36,23 @@ namespace RFS.Application.Dto
         public UserListDto()
         {
             CreatedAt = DateTime.Now;
+        }
+        public UserListDto FromIdentityUser(IdentityUser user)
+
+        {
+            return new UserListDto
+            {
+                Id = user.Id,
+                CompanyName = user.CompanyName,
+                Email = user.Email,
+                IsActive = user.IsActive,
+                LanguagePreferred = user.LanguagePreferred,
+                Mobile = user.Mobile,
+                Name = user.Name,
+                NationalID = user.NationalID,
+                UserName = user.UserName,
+                UserType = user.UserType
+            };
         }
 
     }

@@ -26,7 +26,7 @@ namespace RFS.Core.Security
 
         [Key]
         public int Id { get; set; }
-        [StringLength(20)]
+        [StringLength(50)]
         public string UserName { get; set; }
         [Required]
         [EmailAddress]
@@ -88,9 +88,12 @@ namespace RFS.Core.Security
 
 
         #region custom properties
-            [Required]
+        [Required]
         [StringLength(50)]
         public virtual string Name { get; set; }
+        [Required]
+        [StringLength(50)]
+        public virtual string Title { get; set; }
         [Required]
         [StringLength(10)]
         public virtual string NationalID { get; set; }
