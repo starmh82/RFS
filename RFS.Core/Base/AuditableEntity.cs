@@ -17,6 +17,11 @@ namespace RFS.Core
             this.CreatedAt = DateTime.Now;
             return this;
         }
+        public AuditableEntity SetUpdate()
+        {
+            this.UpdatedAt = DateTime.Now;
+            return this;
+        }
 
     }
 }

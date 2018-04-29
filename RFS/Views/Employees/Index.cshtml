@@ -1,7 +1,7 @@
 ﻿@*@model IEnumerable<RFS.Application.Dto.UserDto>*@
 @using RFS.Application.Dto;
 @using PagedList.Mvc;
-@model PagedList.IPagedList<UserListDto>
+@model PagedList.IPagedList<UserDto>
 
 @{
     ViewBag.Title = "Employees";
@@ -47,7 +47,7 @@
                                             Email
                                         </th>
 
-                                        <th class="visible-md">
+                                        <th>
                                             @*@Html.DisplayNameFor(model => model.Name)*@
                                             Name
                                         </th>
@@ -93,7 +93,7 @@
                                                     @Html.DisplayFor(modelItem => item.Email)
                                                 </a>
                                             </td>
-                                            <td class="visible-md">
+                                            <td>
                                                 @Html.DisplayFor(modelItem => item.Name)
                                             </td>
                                             <td>

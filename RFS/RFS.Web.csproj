@@ -1912,8 +1912,9 @@
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Employees\Employees.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

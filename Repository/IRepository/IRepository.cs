@@ -18,5 +18,6 @@ namespace RFS.Repositories
 
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
+        int Save();
     }
 }

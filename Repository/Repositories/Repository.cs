@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -48,6 +49,29 @@ namespace RFS.Repositories
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
             context.Set<TEntity>().RemoveRange(entities);
+        }
+        public void Update(TEntity entity)
+        {
+            context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public int Save()
+        {
+            try
+            {
+                return context.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+
+                foreach(var eve in ex.EntityValidationErrors)
+                {
+                    var name = eve.Entry.Entity.GetType().Name;
+                   List<DbValidationError> errors =   eve.ValidationErrors.ToList();
+                }
+            }
+            return 0;
+            
         }
     }
 }

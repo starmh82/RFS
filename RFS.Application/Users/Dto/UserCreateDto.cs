@@ -32,7 +32,6 @@ namespace RFS.Application.Dto
         public Langauge LanguagePreferred { get; set; }
         public bool IsActive { get; set; }
         public UserType UserType { get; set; }
-        public DateTime CreatedAt { get; protected set; }
 
         [Required]
         [StringLength(100)]
@@ -41,11 +40,6 @@ namespace RFS.Application.Dto
         [StringLength(100)]
         [Compare(nameof(Password), ErrorMessage = "Password and Confirm not equal")]
         public string ConfirmPassword { get; set; }
-
-        public UserCreateDto()
-        {
-            CreatedAt = DateTime.Now;
-        }
 
         public IdentityUser ToIdentityUser()
         {
