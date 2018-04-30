@@ -37,4 +37,30 @@
     /*border-top-color: #00a65a;*/
     border-left-color: #00a65a;
 }
+
+.darkblue-tooltip + .tooltip > .tooltip-inner {
+    background-color: #0073b7;
+}
+
+.darkblue-tooltip + .tooltip.top > .tooltip-arrow {
+    border-top-color: #0073b7;
+}
+
+.darkblue-tooltip + .tooltip.left > .tooltip-arrow {
+    border-left-color: #0073b7;
+}
+
+.yellow-tooltip + .tooltip > .tooltip-inner {
+    background-color: #f39c12;
+}
+
+.yellow-tooltip + .tooltip.top > .tooltip-arrow {
+    border-top-color: #f39c12;
+}
+
+.yellow-tooltip + .tooltip.left > .tooltip-arrow {
+    border-left-color: #f39c12;
+}
+
+
 /* ------------------- */

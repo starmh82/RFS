@@ -13,10 +13,10 @@ namespace RFS.Repositories
         public UnitOfWork(RFSContext context)
         {
             _context = context;
-            Requests = new RequestRepository(_context);
+            DeletionRequests = new DeletionRequestRepository();
         }
 
-        public IRequestRepository Requests { get; private set; }
+        public IDeletionRequestRepository DeletionRequests { get; private set; }
 
         public int Complete()
         {

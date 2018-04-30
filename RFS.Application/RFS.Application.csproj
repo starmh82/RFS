@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeletionReason\DeletionReasonDto.cs" />
+    <Compile Include="DeletionReason\DeletionReasonService.cs" />
+    <Compile Include="DeletionRequest\DeletionRequestService.cs" />
+    <Compile Include="DeletionRequest\Dto\DeletionRequestCreateDto.cs" />
+    <Compile Include="DeletionRequest\Dto\DeletionRequestDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\Dto\UserCreateDto.cs" />
     <Compile Include="Users\Dto\UserDto.cs" />

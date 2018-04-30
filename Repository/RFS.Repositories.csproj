@@ -56,10 +56,15 @@
     <Compile Include="Migrations\201804241741457_Initial.Designer.cs">
       <DependentUpon>201804241741457_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804301805465_v5.cs" />
+    <Compile Include="Migrations\201804301805465_v5.Designer.cs">
+      <DependentUpon>201804301805465_v5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DeletionReasonRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Repositories\RequestRepository.cs" />
+    <Compile Include="Repositories\DeletionRequestRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="RFSContext.cs" />
@@ -80,6 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804241741457_Initial.resx">
       <DependentUpon>201804241741457_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804301805465_v5.resx">
+      <DependentUpon>201804301805465_v5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

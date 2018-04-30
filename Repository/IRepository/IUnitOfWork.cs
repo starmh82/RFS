@@ -8,7 +8,7 @@ namespace RFS.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRequestRepository Requests { get; }
+        IDeletionRequestRepository DeletionRequests { get; }
         int Complete();
     }
 }

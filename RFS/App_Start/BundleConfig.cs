@@ -57,6 +57,12 @@ namespace RFS
             bundles.Add(new ScriptBundle("~/bundles/pace.js").Include(
                 "~/Content/plugins/pace/pace.min.js"));
 
+            // DatePicker
+            bundles.Add(new StyleBundle("~/bundles/datepicker").Include(
+               "~/Content/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/datepicker.js").Include(
+                "~/Content/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"));
 
             // Enables bundling and minification and overrides any setting in the Web.config file
             //BundleTable.EnableOptimizations = true;

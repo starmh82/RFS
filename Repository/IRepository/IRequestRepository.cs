@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace RFS.Repositories
 {
-    public interface IRequestRepository : IRepository<Request>
+    public interface IDeletionRequestRepository : IRepository<DeletionRequest>
     {
-        IEnumerable<Request> GetLatestTopRequests(int count);
-        IEnumerable<Request> GetTopLateRequests(int pageIndex, int pageSize);
+        IEnumerable<DeletionRequest> GetLatestTopRequests(int count);
+        IEnumerable<DeletionRequest> GetTopLateRequests(int pageIndex, int pageSize);
     }
 }

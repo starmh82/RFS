@@ -14,8 +14,9 @@ namespace RFS.Repositories
             //Database.SetInitializer(new DropCreateDatabaseAlways<RFSContext>());
         }
 
-        public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<DeletionRequest> DeletionRequests { get; set; }
         public virtual DbSet<IdentityUser> Users { get; set; }
+        public virtual DbSet<DeletionReason> DeletionReasons { get; set; }
 
         #region Identity
         public virtual DbSet<IdentityUserClaim> UserClaims { get; set; }

@@ -43,18 +43,19 @@ namespace RFS.Application.Dto
 
         public IdentityUser ToIdentityUser()
         {
-            return new IdentityUser {
-             CompanyName = this.CompanyName,
-             Email = this.Email,
-            IsActive = this.IsActive,
-             LanguagePreferred = this.LanguagePreferred,
-            Mobile = this.Mobile,
-            Name = this.Name,
-            NationalID = this.NationalID,
-            Password = this.Password,
-            Title = this.Title,
-            UserType = this.UserType,
-            UserName = this.UserName
+            return new IdentityUser
+            {
+                CompanyName = this.CompanyName,
+                Email = this.Email,
+                IsActive = this.IsActive,
+                LanguagePreferred = this.LanguagePreferred,
+                Mobile = this.Mobile,
+                Name = this.Name,
+                NationalID = this.NationalID,
+                Password = this.Password,
+                Title = this.Title,
+                UserType = this.UserType,
+                UserName = this.UserName
             };
         }
     }

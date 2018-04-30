@@ -16,6 +16,10 @@ namespace RFS.Repositories
         {
             this.context = context;
         }
+        //public Repository()
+        //{
+        //    this.context = new RFSContext();
+        //}
         public void Add(TEntity entity)
         {
             context.Set<TEntity>().Add(entity);

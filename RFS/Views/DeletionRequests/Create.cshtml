@@ -1,0 +1,104 @@
+﻿@model RFS.Application.Dto.DeletionRequestCreateDto
+
+@section styles{
+    @Styles.Render("~/bundles/datepicker")
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Deletion Requests
+            <small>.</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Requests</a></li>
+            <li class="active">Deletion</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Create Deletion Request</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="box-body">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Name">MemberShip No</label>
+                                    @Html.TextBoxFor(m => m.MemberShipNo, new { @class = "form-control", @placeholder = "Enter MemberShip No" })
+                                    @*<input type="text" class="validate form-control" id="Name" placeholder="Enter Name">*@
+                                    @Html.ValidationMessageFor(m => m.MemberShipNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="NationalID">Member Name</label>
+                                    @*<input type="text" class="form-control" id="NationalID" placeholder="National ID">*@
+                                    @Html.TextBoxFor(m => m.MemberName, new { @class = "form-control", @placeholder = "Enter Member Name" })
+                                    @Html.ValidationMessageFor(m => m.MemberName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Email">Deletion Date</label>
+                                    @*<input type="email" class="form-control" id="Email" placeholder="Enter Email">*@
+                                    @Html.TextBoxFor(m => m.DeletionDate, new { @class = "form-control", @placeholder = "Enter Deletion Of Date" })
+                                    @Html.ValidationMessageFor(m => m.DeletionDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Mobile">Nationality</label>
+                                    @*<input type="text" class="form-control" id="Mobile" placeholder="Enter Mobile Number">*@
+                                    @Html.DropDownListFor(m => m.Nationality, (SelectList)ViewBag.Nationalities, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Nationality, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Mobile">Deletion Reason</label>
+                                    @*<input type="text" class="form-control" id="Mobile" placeholder="Enter Mobile Number">*@
+                                    @Html.DropDownListFor(m => m.DeletionReasonId, (SelectList)ViewBag.DeletionReasons, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.DeletionReasonId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>   Create</button>
+                            <a class="btn btn-danger pull-right" href="/DeletionRequests/Index"><i class="fa fa-reply"></i>   Back </a>
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@*Icheck code*@
+
+@section scripts{
+    @Scripts.Render("~/bundles/datepicker.js")
+    <script>
+        $(function () {
+            $('#DeletionDate').datepicker({
+                autoclose: true
+            })
+        });
+    </script>
+}

@@ -46,8 +46,10 @@
   <ItemGroup>
     <Compile Include="Base\AuditableEntity.cs" />
     <Compile Include="Base\BaseEntity.cs" />
-    <Compile Include="Entities\Request.cs" />
+    <Compile Include="Entities\DeletionReason.cs" />
+    <Compile Include="Entities\DeletionRequest.cs" />
     <Compile Include="Enums\Langauge.cs" />
+    <Compile Include="Enums\NationalityType.cs" />
     <Compile Include="Enums\RequestType.cs" />
     <Compile Include="Enums\Status.cs" />
     <Compile Include="Enums\UserType.cs" />
