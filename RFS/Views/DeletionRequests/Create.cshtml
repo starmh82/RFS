@@ -61,7 +61,7 @@
                                 <div class="form-group">
                                     <label for="Mobile">Nationality</label>
                                     @*<input type="text" class="form-control" id="Mobile" placeholder="Enter Mobile Number">*@
-                                    @Html.DropDownListFor(m => m.Nationality, (SelectList)ViewBag.Nationalities, new { @class = "form-control" })
+                                    @Html.DropDownListFor(m => m.Nationality, Enumerable.Empty<SelectListItem>(), new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Nationality, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                 <div class="form-group">
                                     <label for="Mobile">Deletion Reason</label>
                                     @*<input type="text" class="form-control" id="Mobile" placeholder="Enter Mobile Number">*@
-                                    @Html.DropDownListFor(m => m.DeletionReasonId, (SelectList)ViewBag.DeletionReasons, new { @class = "form-control" })
+                                    @Html.DropDownListFor(m => m.DeletionReasonId, Enumerable.Empty<SelectListItem>(), new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.DeletionReasonId, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -99,6 +99,50 @@
             $('#DeletionDate').datepicker({
                 autoclose: true
             })
+            debugger;
+            AjaxCall('/DeletionRequests/GetNationalities', null).done(function (response) {
+                if (response.length > 0) {
+                    $('#Nationality').html('');
+                    var options = '';
+                    options += '<option value="Select">Select</option>';
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i].Key + '">' + response[i].Value + '</option>';
+                    }
+                    $('#Nationality').append(options);
+
+                }
+            }).fail(function (error) {
+                alert(error.StatusText);
+            });  
+
+            $('#Nationality').on("change", function () {
+                
+                var nationality = $('#Nationality').val();
+                var obj = { NationalityType: nationality };
+                AjaxCall('/DeletionRequests/GetReasons', JSON.stringify(obj), 'POST').done(function (response) {
+                    if (response.length > 0) {
+                        $('#DeletionReasonId').html('');
+                        var options = '';
+                        options += '<option value="Select">Select</option>';
+                        for (var i = 0; i < response.length; i++) {
+                            options += '<option value="' + response[i].Id + '">' + response[i].Title + '</option>';
+                        }
+                        $('#DeletionReasonId').append(options);
+
+                    }
+                }).fail(function (error) {
+                    alert(error.StatusText);
+                });
+            });  
         });
+
+        function AjaxCall(url, data, type) {
+            return $.ajax({
+                url: url,
+                type: type ? type : 'GET',
+                data: data,
+                contentType: 'application/json'
+            });
+        }
     </script>
 }

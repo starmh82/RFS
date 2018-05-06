@@ -24,19 +24,12 @@ namespace RFS.Web.Controllers
         public ActionResult Create()
         {
             DeletionRequestCreateDto drViewModel = new DeletionRequestCreateDto();
-            ViewBag.Nationalities = new SelectList(GetNationalities(), "Value", "Text");
-            ViewBag.DeletionReasons = new SelectList(DeletionReasonService.Instance.GetAllReasons(), "Id", "Title");
+            //ViewBag.Nationalities = new SelectList(GetNationalities(), "Value", "Text");
+            //ViewBag.DeletionReasons = new SelectList(DeletionReasonService.Instance.GetReasons(null), "Id", "Title");
 
             return View(drViewModel);
         }
-        protected List<SelectListItem> GetNationalities()
-        {
-            List<SelectListItem> list = new List<SelectListItem>();
-            list.Add(new SelectListItem() { Text = "Saudi", Value = "1" });
-            list.Add(new SelectListItem() { Text = "Non Saudi", Value = "2" });
-
-            return list;
-        }
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(DeletionRequestCreateDto model)
@@ -47,14 +40,26 @@ namespace RFS.Web.Controllers
             if (ModelState.IsValid)
             {
                 DeletionRequestService.Instance.CreateDeletionRequest(model);
+                //ViewBag.DeletionReasons = new SelectList(DeletionReasonService.Instance.GetReasons(null), "Id", "Title");
                 return RedirectToAction("Index");
 
             }
             else
             {
+                //ViewBag.Nationalities = new SelectList(GetNationalities(), "Value", "Text");
                 return View(model);
             }
 
+        }
+        public JsonResult GetNationalities()
+        {
+            return Json( LookupsService.Instance.GetNationalities(), JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult GetReasons(int NationalityType)
+        {
+            var reasons = DeletionReasonService.Instance.GetReasons(NationalityType);
+            return Json(reasons, JsonRequestBehavior.AllowGet);
         }
     }
 }

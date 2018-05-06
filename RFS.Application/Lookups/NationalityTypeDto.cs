@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RFS.Core.Enums
+namespace RFS.Application.Lookups
 {
-    public enum NationalityType
+    class NationalityTypeDto
     {
-        Saudi = 1,
-        NonSaudi = 2
-            
     }
 }

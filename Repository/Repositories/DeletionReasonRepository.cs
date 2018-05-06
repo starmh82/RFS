@@ -15,7 +15,7 @@ namespace Repository.Repositories
         {
         }
 
-        public IEnumerable<DeletionReason> GetAllActiveReasons( Func<DeletionReason,bool> filter)
+        public IEnumerable<DeletionReason> GetReasons( Func<DeletionReason,bool> filter)
         {
             return RFSContext.DeletionReasons.Where(filter).ToList();
         }

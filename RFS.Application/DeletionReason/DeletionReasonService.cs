@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Repository.Repositories;
 using RFS.Application.Dto;
 using RFS.Core;
+using RFS.Core.Enums;
 using RFS.Repositories;
 
 namespace RFS.Application
@@ -24,9 +25,13 @@ namespace RFS.Application
             Instance = new DeletionReasonService();
         }
 
-        public List<DeletionReasonDto> GetAllReasons()
+        public List<DeletionReasonDto> GetReasons(int? nationalityType)
         {
-            var reasons = repository.GetAllActiveReasons(r=> r.Active).ToList();
+            IEnumerable<DeletionReason> reasons;
+            if (nationalityType.HasValue)
+                 reasons = repository.GetReasons(r =>( r.Type == (NationalityType)nationalityType) && r.Active).ToList();
+            else
+                 reasons = repository.GetReasons(r=> r.Active).ToList();
 
             List<DeletionReasonDto> reasonsList = new List<DeletionReasonDto>();
             foreach (var res in reasons) reasonsList.Add(new DeletionReasonDto().FromDeletionReason(res));
